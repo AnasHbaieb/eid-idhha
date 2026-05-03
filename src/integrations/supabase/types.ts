@@ -14,16 +14,101 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      donations: {
+        Row: {
+          amount: number | null
+          created_at: string
+          full_name: string
+          gps_location: string | null
+          id: string
+          payment_method: Database["public"]["Enums"]["payment_method"] | null
+          phone: string
+          pickup_method: Database["public"]["Enums"]["pickup_method"] | null
+          pickup_required: boolean
+          pickup_time: string | null
+          project_type: string
+          status: Database["public"]["Enums"]["donation_status"]
+          track: Database["public"]["Enums"]["donation_track"]
+        }
+        Insert: {
+          amount?: number | null
+          created_at?: string
+          full_name: string
+          gps_location?: string | null
+          id?: string
+          payment_method?: Database["public"]["Enums"]["payment_method"] | null
+          phone: string
+          pickup_method?: Database["public"]["Enums"]["pickup_method"] | null
+          pickup_required?: boolean
+          pickup_time?: string | null
+          project_type?: string
+          status?: Database["public"]["Enums"]["donation_status"]
+          track: Database["public"]["Enums"]["donation_track"]
+        }
+        Update: {
+          amount?: number | null
+          created_at?: string
+          full_name?: string
+          gps_location?: string | null
+          id?: string
+          payment_method?: Database["public"]["Enums"]["payment_method"] | null
+          phone?: string
+          pickup_method?: Database["public"]["Enums"]["pickup_method"] | null
+          pickup_required?: boolean
+          pickup_time?: string | null
+          project_type?: string
+          status?: Database["public"]["Enums"]["donation_status"]
+          track?: Database["public"]["Enums"]["donation_track"]
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_donation_total: {
+        Args: never
+        Returns: {
+          donor_count: number
+          total_amount: number
+        }[]
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
+      donation_status: "pending" | "collected"
+      donation_track: "financial" | "shoulders"
+      payment_method: "cash" | "transfer" | "check"
+      pickup_method: "headquarters" | "home"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +235,12 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+      donation_status: ["pending", "collected"],
+      donation_track: ["financial", "shoulders"],
+      payment_method: ["cash", "transfer", "check"],
+      pickup_method: ["headquarters", "home"],
+    },
   },
 } as const
