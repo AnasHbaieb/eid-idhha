@@ -56,7 +56,7 @@ const Index = () => {
         <section className="container mx-auto px-4 py-8 sm:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Image (left in LTR, appears left in RTL via order) */}
-            <div className="order-2 lg:order-1 flex justify-center">
+            <div className="order-2 flex justify-center">
               <div className="relative w-full max-w-xl rounded-2xl overflow-hidden shadow-soft">
                 <img
                   src={heroImage}
@@ -67,7 +67,7 @@ const Index = () => {
             </div>
 
             {/* Text (right) */}
-            <div className="order-1 lg:order-2 text-right space-y-5">
+            <div className="order-1 text-right space-y-5">
               <h1 className="font-arabic-display text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
                 ضْحِيِّتْنَا
               </h1>
