@@ -42,9 +42,6 @@ export const ShouldersDonationForm = ({ onBack }: { onBack: () => void }) => {
             <p className="text-sm text-muted-foreground">في نطاق 15 كم من ساقية الدائر</p>
           </button>
         </div>
-        <Button variant="outline" onClick={onBack} className="w-full sm:w-auto">
-          رجوع
-        </Button>
       </div>
     );
   }
