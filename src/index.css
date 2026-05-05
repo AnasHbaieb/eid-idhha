@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 45 38% 97%;
+    --background: 350 60% 98%;
     --foreground: 150 30% 12%;
 
     --card: 0 0% 100%;
@@ -84,5 +84,13 @@
   }
   .shadow-card {
     box-shadow: var(--shadow-card);
+  }
+  .hearts-bg {
+    background-image:
+      radial-gradient(circle at 8% 12%, hsl(350 80% 88% / 0.55) 0 14px, transparent 15px),
+      radial-gradient(circle at 92% 18%, hsl(350 80% 90% / 0.5) 0 10px, transparent 11px),
+      radial-gradient(circle at 15% 85%, hsl(350 80% 90% / 0.5) 0 12px, transparent 13px),
+      radial-gradient(circle at 88% 78%, hsl(350 80% 88% / 0.55) 0 16px, transparent 17px),
+      radial-gradient(circle at 50% 45%, hsl(350 80% 92% / 0.35) 0 8px, transparent 9px);
   }
 }
