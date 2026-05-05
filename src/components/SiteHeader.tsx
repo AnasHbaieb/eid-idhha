@@ -17,7 +17,8 @@ export const SiteHeader = () => {
         </Link>
         <Link
           to="/admin"
-          className="text-xs text-muted-foreground hover:text-primary transition-colors"
+          aria-label="دخول الإدارة"
+          className="sr-only"
         >
           دخول الإدارة
         </Link>
