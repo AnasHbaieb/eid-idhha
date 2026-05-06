@@ -27,6 +27,16 @@ export const headquartersSchema = z.object({
 
 export const homePickupSchema = z.object({
   ...baseFields,
+<<<<<<< HEAD
+=======
+  pickup_time: z
+    .string()
+    .regex(/^([01]\d|2[0-3]):[0-5]\d$/, "وقت موش صحيح")
+    .refine((v) => {
+      const [h] = v.split(":").map(Number);
+      return h >= 13 && h < 18;
+    }, "الوقت بين 13:00 و 18:00"),
+>>>>>>> 63344bc8c7d6ad89d45ed80dbce533a5b35a3f62
   gps_location: z
     .string()
     .trim()
