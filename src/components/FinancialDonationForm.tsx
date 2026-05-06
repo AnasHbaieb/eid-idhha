@@ -166,9 +166,6 @@ export const FinancialDonationForm = ({ onBack }: { onBack: () => void }) => {
       )}
 
       <div className="flex flex-col sm:flex-row gap-3">
-        <Button type="button" variant="outline" onClick={onBack} className="sm:w-auto">
-          رجوع
-        </Button>
         <Button type="submit" disabled={submitting} className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-6 text-base">
           {submitting && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
           تأكيد المساهمة
