@@ -124,11 +124,7 @@ const HomePickupFlow = ({ onBack }: { onBack: () => void }) => {
   const [submitting, setSubmitting] = useState(false);
   const form = useForm<HomePickupForm>({
     resolver: zodResolver(homePickupSchema),
-<<<<<<< HEAD
     defaultValues: { full_name: "", phone: "", gps_location: "" },
-=======
-    defaultValues: { full_name: "", phone: "", pickup_time: "14:00", gps_location: "" },
->>>>>>> 63344bc8c7d6ad89d45ed80dbce533a5b35a3f62
   });
 
   const onSubmit = async (values: HomePickupForm) => {
@@ -140,10 +136,6 @@ const HomePickupFlow = ({ onBack }: { onBack: () => void }) => {
       phone: values.phone,
       pickup_required: true,
       pickup_method: "home",
-<<<<<<< HEAD
-=======
-      pickup_time: values.pickup_time,
->>>>>>> 63344bc8c7d6ad89d45ed80dbce533a5b35a3f62
       gps_location: values.gps_location,
     });
     setSubmitting(false);
@@ -179,16 +171,6 @@ const HomePickupFlow = ({ onBack }: { onBack: () => void }) => {
           )}
         </div>
         <div>
-<<<<<<< HEAD
-=======
-          <Label htmlFor="pickup_time">وقت الاستلام (13:00 - 18:00) *</Label>
-          <Input id="pickup_time" type="time" min="13:00" max="18:00" {...form.register("pickup_time")} dir="ltr" />
-          {form.formState.errors.pickup_time && (
-            <p className="text-destructive text-sm mt-1">{form.formState.errors.pickup_time.message}</p>
-          )}
-        </div>
-        <div>
->>>>>>> 63344bc8c7d6ad89d45ed80dbce533a5b35a3f62
           <Label htmlFor="gps_location">رابط Google Maps *</Label>
           <Input
             id="gps_location"
