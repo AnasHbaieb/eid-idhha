@@ -214,7 +214,7 @@ const AdminDashboard = () => {
                           {d.amount ? `${d.amount} د` : "-"}
                         </TableCell>
                         <TableCell className="text-xs max-w-[220px]">
-                          {d.payment_method && <div>دفع: {d.payment_method}</div>}
+                          {d.payment_method && <div>دفع: {d.payment_method === "cash" ? "نقدي" : d.payment_method === "transfer" ? "تحويل بنكي" : d.payment_method === "check" ? "شيك" : d.payment_method}</div>}
                           {d.pickup_method && <div>استلام: {d.pickup_method === "home" ? "بيت" : "مقر"}</div>}
                           {d.pickup_time && <div>وقت: {d.pickup_time}</div>}
                           {d.gps_location && (
