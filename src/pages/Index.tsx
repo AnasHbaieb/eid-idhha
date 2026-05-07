@@ -10,16 +10,19 @@ import { supabase } from "@/integrations/supabase/client";
 import heroImage from "@/assets/hero-sheep.jpg";
 
 const GOAL = 30000;
+const SHOULDERS_GOAL = 100;
 
 const Index = () => {
   const [open, setOpen] = useState(false);
   const [initialTrack, setInitialTrack] = useState<"financial" | "shoulders" | null>(null);
   const [total, setTotal] = useState(0);
+  const [shouldersCount, setShouldersCount] = useState(0);
 
   const fetchTotal = async () => {
     const { data, error } = await supabase.rpc("get_donation_total");
     if (!error && data && data.length > 0) {
       setTotal(Number(data[0].total_amount) || 0);
+      setShouldersCount(Number((data[0] as any).shoulders_count) || 0);
     }
   };
 
