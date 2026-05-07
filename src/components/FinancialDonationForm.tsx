@@ -106,14 +106,14 @@ export const FinancialDonationForm = ({ onBack }: { onBack: () => void }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="full_name">الاسم و اللقب *</Label>
-          <Input id="full_name" {...form.register("full_name")} placeholder="محمد بن علي" />
+          <Input id="full_name" {...form.register("full_name")} />
           {form.formState.errors.full_name && (
             <p className="text-destructive text-sm mt-1">{form.formState.errors.full_name.message}</p>
           )}
         </div>
         <div>
           <Label htmlFor="phone">رقم الهاتف *</Label>
-          <Input id="phone" {...form.register("phone")} placeholder="20123456" dir="ltr" />
+          <Input id="phone" {...form.register("phone")} dir="ltr" />
           {form.formState.errors.phone && (
             <p className="text-destructive text-sm mt-1">{form.formState.errors.phone.message}</p>
           )}
