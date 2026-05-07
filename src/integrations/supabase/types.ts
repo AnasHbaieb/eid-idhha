@@ -92,6 +92,7 @@ export type Database = {
         Args: never
         Returns: {
           donor_count: number
+          shoulders_count: number
           total_amount: number
         }[]
       }
