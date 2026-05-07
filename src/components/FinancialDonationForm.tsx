@@ -11,7 +11,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { financialSchema, type FinancialForm } from "@/lib/donation-schemas";
 import { Loader2, Banknote, Building2, FileCheck } from "lucide-react";
 
-const PRESETS = [50, 100];
+const PRESETS = [50];
 
 export const FinancialDonationForm = ({ onBack }: { onBack: () => void }) => {
   const navigate = useNavigate();
