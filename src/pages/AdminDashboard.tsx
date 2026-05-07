@@ -237,7 +237,7 @@ const AdminDashboard = () => {
                                 : "bg-secondary/20 text-secondary-foreground"
                             }`}
                           >
-                            {d.status === "collected" ? "مُستلَمة ✓" : "في الانتظار"}
+                            {d.status === "collected" ? "مؤكدة ✓" : "في الانتظار"}
                           </button>
                         </TableCell>
                       </TableRow>
