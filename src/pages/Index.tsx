@@ -44,6 +44,7 @@ const Index = () => {
   }, []);
 
   const percentage = Math.min((total / GOAL) * 100, 100);
+  const shouldersPercentage = Math.min((shouldersCount / SHOULDERS_GOAL) * 100, 100);
 
   const openWith = (track: "financial" | "shoulders") => {
     setInitialTrack(track);
