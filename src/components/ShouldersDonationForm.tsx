@@ -38,7 +38,7 @@ export const ShouldersDonationForm = ({ onBack }: { onBack: () => void }) => {
             className="rounded-2xl border-2 border-border p-6 text-center hover:border-primary hover:bg-primary/5 transition-all"
           >
             <Home className="h-10 w-10 mx-auto mb-3 text-primary" />
-            <p className="font-bold text-lg mb-1">جيو خوذوها مني</p>
+            <p className="font-bold text-lg mb-1">تعالوا خذوها مني</p>
             <p className="text-sm text-muted-foreground">في نطاق 10 كم من ساقية الدائر</p>
           </button>
         </div>
