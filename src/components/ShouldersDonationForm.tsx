@@ -13,7 +13,7 @@ import {
   type HeadquartersForm,
   type HomePickupForm,
 } from "@/lib/donation-schemas";
-import { Loader2, MapPin, Building2, Home } from "lucide-react";
+import { Loader2, MapPin, Building2, Home, LocateFixed } from "lucide-react";
 
 type Method = "headquarters" | "home" | null;
 
