@@ -130,7 +130,7 @@ export const FinancialDonationForm = ({ onBack }: { onBack: () => void }) => {
           {[
             { val: "cash", label: "نقدي", icon: Banknote },
             { val: "transfer", label: "تحويل بنكي", icon: Building2 },
-            { val: "check", label: "شيك", icon: FileCheck },
+            { val: "check", label: "صك بنكي", icon: FileCheck },
           ].map(({ val, label, icon: Icon }) => (
             <label
               key={val}
@@ -154,8 +154,8 @@ export const FinancialDonationForm = ({ onBack }: { onBack: () => void }) => {
       )}
       {paymentMethod === "check" && (
         <div className="rounded-xl bg-muted/60 p-4 text-sm">
-          <p className="font-bold mb-1">دفع بالشيك</p>
-          <p className="text-muted-foreground">يتم استلام الشيك في المقر بساقية الدائر أو بتنسيق مع الفريق.</p>
+          <p className="font-bold mb-1">دفع بالصك البنكي</p>
+          <p className="text-muted-foreground">يتم استلام الصك في المقر بساقية الدائر أو بتنسيق مع الفريق.</p>
         </div>
       )}
       {paymentMethod === "cash" && (
