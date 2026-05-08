@@ -199,12 +199,25 @@ const HomePickupFlow = ({ onBack }: { onBack: () => void }) => {
         </div>
         <div>
           <Label htmlFor="gps_location">رابط Google Maps *</Label>
-          <Input
-            id="gps_location"
-            {...form.register("gps_location")}
-            placeholder="https://maps.google.com/..."
-            dir="ltr"
-          />
+          <div className="flex gap-2">
+            <Input
+              id="gps_location"
+              {...form.register("gps_location")}
+              placeholder="https://maps.google.com/..."
+              dir="ltr"
+              className="flex-1"
+            />
+            <Button
+              type="button"
+              variant="outline"
+              onClick={detectLocation}
+              disabled={locating}
+              className="shrink-0 gap-2"
+            >
+              {locating ? <Loader2 className="h-4 w-4 animate-spin" /> : <LocateFixed className="h-4 w-4" />}
+              موقعي
+            </Button>
+          </div>
           {form.formState.errors.gps_location && (
             <p className="text-destructive text-sm mt-1">{form.formState.errors.gps_location.message}</p>
           )}
