@@ -161,7 +161,7 @@ export const FinancialDonationForm = ({ onBack }: { onBack: () => void }) => {
       {paymentMethod === "cash" && (
         <div className="rounded-xl bg-muted/60 p-4 text-sm">
           <p className="font-bold mb-1">الدفع نقدي</p>
-          <p className="text-muted-foreground">فريق المتطوعين سيتصل بك لتنسيق الاستلام في أقرب وقت.</p>
+          <p className="text-muted-foreground">فريق الإدارة سيتصل بك لتنسيق الاستلام في أقرب وقت.</p>
         </div>
       )}
 
