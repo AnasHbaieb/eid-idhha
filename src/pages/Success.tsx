@@ -19,7 +19,7 @@ const Success = () => {
           <p className="text-base sm:text-lg text-foreground/80 leading-loose">
             مساهمتك في <strong className="text-primary">(ضْحِيِّتْنَا)</strong> وصلت لجمعية الكلمة الطيبة.
             <br />
-            فريق المتطوعين سيتصل بك قريباً لتنسيق الاستلام (خاصة لصدقة الأكتاف).
+            فريق الإدارة سيتصل بك قريباً لتنسيق الاستلام.
           </p>
           <p className="mt-6 text-xl font-bold text-secondary">عيدكم مبروك مسبقاً! 🌙</p>
           <Link to="/">
