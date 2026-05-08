@@ -13,7 +13,7 @@ import {
   type HeadquartersForm,
   type HomePickupForm,
 } from "@/lib/donation-schemas";
-import { Loader2, MapPin, Building2, Home } from "lucide-react";
+import { Loader2, MapPin, Building2, Home, LocateFixed } from "lucide-react";
 
 type Method = "headquarters" | "home" | null;
 
@@ -122,10 +122,37 @@ const HeadquartersFlow = ({ onBack }: { onBack: () => void }) => {
 const HomePickupFlow = ({ onBack }: { onBack: () => void }) => {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
+  const [locating, setLocating] = useState(false);
   const form = useForm<HomePickupForm>({
     resolver: zodResolver(homePickupSchema),
     defaultValues: { full_name: "", phone: "", gps_location: "" },
   });
+
+  const detectLocation = () => {
+    if (!("geolocation" in navigator)) {
+      toast.error("المتصفح ما يدعمش تحديد الموقع");
+      return;
+    }
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords;
+        const url = `https://www.google.com/maps?q=${latitude},${longitude}`;
+        form.setValue("gps_location", url, { shouldValidate: true });
+        toast.success("تم تحديد موقعك");
+        setLocating(false);
+      },
+      (err) => {
+        setLocating(false);
+        if (err.code === err.PERMISSION_DENIED) {
+          toast.error("ما عطيتش الإذن لتحديد الموقع");
+        } else {
+          toast.error("ما نجمناش نحدّدو موقعك، عاود من فضلك");
+        }
+      },
+      { enableHighAccuracy: true, timeout: 10000 }
+    );
+  };
 
   const onSubmit = async (values: HomePickupForm) => {
     setSubmitting(true);
@@ -172,12 +199,25 @@ const HomePickupFlow = ({ onBack }: { onBack: () => void }) => {
         </div>
         <div>
           <Label htmlFor="gps_location">رابط Google Maps *</Label>
-          <Input
-            id="gps_location"
-            {...form.register("gps_location")}
-            placeholder="https://maps.google.com/..."
-            dir="ltr"
-          />
+          <div className="flex gap-2">
+            <Input
+              id="gps_location"
+              {...form.register("gps_location")}
+              placeholder="https://maps.google.com/..."
+              dir="ltr"
+              className="flex-1"
+            />
+            <Button
+              type="button"
+              variant="outline"
+              onClick={detectLocation}
+              disabled={locating}
+              className="shrink-0 gap-2"
+            >
+              {locating ? <Loader2 className="h-4 w-4 animate-spin" /> : <LocateFixed className="h-4 w-4" />}
+              موقعي
+            </Button>
+          </div>
           {form.formState.errors.gps_location && (
             <p className="text-destructive text-sm mt-1">{form.formState.errors.gps_location.message}</p>
           )}
