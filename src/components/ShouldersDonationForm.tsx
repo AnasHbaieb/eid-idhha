@@ -39,7 +39,7 @@ export const ShouldersDonationForm = ({ onBack }: { onBack: () => void }) => {
           >
             <Home className="h-10 w-10 mx-auto mb-3 text-primary" />
             <p className="font-bold text-lg mb-1">جيو خوذوها مني</p>
-            <p className="text-sm text-muted-foreground">في نطاق 15 كم من ساقية الدائر</p>
+            <p className="text-sm text-muted-foreground">في نطاق 10 كم من ساقية الدائر</p>
           </button>
         </div>
       </div>
@@ -151,7 +151,7 @@ const HomePickupFlow = ({ onBack }: { onBack: () => void }) => {
       <div className="rounded-xl bg-secondary/15 border border-secondary/40 p-4 text-sm">
         <p className="font-bold mb-1">⚠️ ملاحظة هامة</p>
         <p className="text-muted-foreground">
-          خدمة الاستلام متوفرة فقط في نطاق 15 كم من ساقية الدائر، بين الساعة 13:00 و 18:00.
+          خدمة الاستلام متوفرة فقط في نطاق 10 كم من ساقية الدائر، بين الساعة 13:00 و 18:00.
         </p>
       </div>
 
