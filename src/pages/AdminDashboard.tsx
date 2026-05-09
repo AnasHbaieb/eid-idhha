@@ -31,6 +31,8 @@ const AdminDashboard = () => {
   const [donations, setDonations] = useState<Donation[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<"all" | "financial" | "shoulders">("all");
+  const [page, setPage] = useState(1);
+  const pageSize = 10;
 
   useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
