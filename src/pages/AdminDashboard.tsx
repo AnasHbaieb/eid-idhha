@@ -117,6 +117,9 @@ const AdminDashboard = () => {
   };
 
   const filtered = donations.filter((d) => filter === "all" || d.track === filter);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const currentPage = Math.min(page, totalPages);
+  const paginated = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize);
   const totalFinancial = donations
     .filter((d) => d.track === "financial")
     .reduce((s, d) => s + Number(d.amount ?? 0), 0);
