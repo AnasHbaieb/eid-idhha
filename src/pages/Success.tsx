@@ -17,7 +17,7 @@ const Success = () => {
             بارك الله في رزقك 🤲
           </h1>
           <p className="text-base sm:text-lg text-foreground/80 leading-loose">
-            مساهمتك في <strong className="text-primary">(ضْحِيِّتْنَا)</strong> وصلت لجمعية الكلمة الطيبة.
+            مساهمتك في <strong className="text-primary">(أُضْحِيَّتْنَا)</strong> وصلت لجمعية الكلمة الطيبة.
             <br />
             فريق الإدارة سيتصل بك قريباً لتنسيق الاستلام.
           </p>

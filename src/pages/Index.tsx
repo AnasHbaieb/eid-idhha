@@ -64,7 +64,7 @@ const Index = () => {
               <div className="relative w-full max-w-xl rounded-2xl overflow-hidden shadow-soft">
                 <img
                   src={heroImage}
-                  alt="ضحيتنا - عيد الأضحى"
+                  alt="أضحيتنا - عيد الأضحى"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -73,7 +73,7 @@ const Index = () => {
             {/* Text (right) */}
             <div className="order-2 lg:order-1 text-right space-y-5">
               <h1 className="font-arabic-display text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-                ضْحِيِّتْنَا
+                أُضْحِيَّتْنَا
               </h1>
               <p className="text-lg text-secondary font-bold">
                 "​قال رسول الله ﷺ: «أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ سُرُورٌ تُدْخِلُهُ عَلَى مُسْلِمٍ..» وعن الأضاحي أمرنا فقال: «أَطْعِمُوا»."
@@ -81,7 +81,7 @@ const Index = () => {
               <p className="text-base text-foreground/80 leading-relaxed">
                 بفضل الله، ومع قرب عيد الأضحى المبارك، تطلق {" "}
                 <span className="font-bold">الجمعية الخيرية الكلمة الطيبة</span> مشروع{" "}
-                <span className="font-bold">"ضْحِيِّتْنَا"</span> لتوفير أضاحي العيد وصدقات اللحوم للعائلات المعوزة والأيتام{" "}
+                <span className="font-bold">"أُضْحِيَّتْنَا"</span> لتوفير أضاحي العيد وصدقات اللحوم للعائلات المعوزة والأيتام{" "}
                 يوم العيد.
                 <span className="font-bold">هدفنا جمع 30.000دينار وتوزيع 100 صدقة الاكتاف</span>
               </p>
@@ -124,7 +124,7 @@ const Index = () => {
                   className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold py-6 shadow-soft"
                 >
                   <Coins className="ml-2 h-5 w-5" />
-                  ساهم في ضحيتنا الآن
+                  ساهم في أضحيتنا الآن
                 </Button>
                 <Button
                   onClick={() => openWith("shoulders")}
