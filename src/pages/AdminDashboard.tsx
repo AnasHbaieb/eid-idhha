@@ -226,7 +226,7 @@ const AdminDashboard = () => {
                             <a
                               href={d.gps_location}
                               target="_blank"
-                              rel="noreferrer"
+                              rel="noopener noreferrer"
                               className="text-primary underline truncate block"
                             >
                               📍 الموقع

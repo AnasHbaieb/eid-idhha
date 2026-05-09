@@ -133,19 +133,29 @@ const HomePickupFlow = ({ onBack }: { onBack: () => void }) => {
       toast.error("المتصفح ما يدعمش تحديد الموقع");
       return;
     }
+    const ua = navigator.userAgent || "";
+    const inAppBrowser = /(FBAN|FBAV|Instagram|Messenger|Line\/|Twitter|TikTok)/i.test(ua);
+
     setLocating(true);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const { latitude, longitude } = pos.coords;
-        const url = `https://www.google.com/maps?q=${latitude},${longitude}`;
+        const url = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
         form.setValue("gps_location", url, { shouldValidate: true });
         toast.success("تم تحديد موقعك");
         setLocating(false);
       },
       (err) => {
         setLocating(false);
+        if (inAppBrowser) {
+          toast.error(
+            "باش تستعمل خاصية تحديد الموقع، افتح هذا الرابط في متصفح الهاتف (Chrome أو Safari).",
+            { duration: 8000 }
+          );
+          return;
+        }
         if (err.code === err.PERMISSION_DENIED) {
-          toast.error("ما عطيتش الإذن لتحديد الموقع");
+          toast.error("ما عطيتش الإذن لتحديد الموقع. افتح الرابط في Chrome أو Safari إذا كنت في تطبيق آخر.");
         } else {
           toast.error("ما نجمناش نحدّدو موقعك، عاود من فضلك");
         }
