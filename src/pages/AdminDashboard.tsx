@@ -8,7 +8,7 @@ import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, LogOut, Download, RefreshCw, Coins, HandHeart, Users } from "lucide-react";
+import { Loader2, LogOut, Download, RefreshCw, Coins, HandHeart, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 
 interface Donation {
@@ -255,26 +255,30 @@ const AdminDashboard = () => {
         </div>
 
         {!loading && filtered.length > 0 && (
-          <div className="flex items-center justify-between mt-4 flex-wrap gap-3">
-            <p className="text-sm text-muted-foreground">
-              صفحة {currentPage} من {totalPages} • {filtered.length} عنصر
-            </p>
-            <div className="flex gap-2">
+          <div className="flex items-center justify-center mt-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-2 py-1 shadow-sm">
               <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-              >
-                السابق
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8 rounded-full"
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={currentPage === totalPages}
+                aria-label="التالي"
               >
-                التالي
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              <span className="text-sm text-muted-foreground px-2">
+                صفحة {currentPage} من {totalPages}
+              </span>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8 rounded-full border border-border"
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+                aria-label="السابق"
+              >
+                <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
           </div>
