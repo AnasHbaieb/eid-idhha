@@ -31,6 +31,8 @@ const AdminDashboard = () => {
   const [donations, setDonations] = useState<Donation[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<"all" | "financial" | "shoulders">("all");
+  const [page, setPage] = useState(1);
+  const pageSize = 10;
 
   useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
@@ -115,6 +117,9 @@ const AdminDashboard = () => {
   };
 
   const filtered = donations.filter((d) => filter === "all" || d.track === filter);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const currentPage = Math.min(page, totalPages);
+  const paginated = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize);
   const totalFinancial = donations
     .filter((d) => d.track === "financial")
     .reduce((s, d) => s + Number(d.amount ?? 0), 0);
@@ -164,7 +169,7 @@ const AdminDashboard = () => {
               key={k}
               variant={filter === k ? "default" : "outline"}
               size="sm"
-              onClick={() => setFilter(k)}
+              onClick={() => { setFilter(k); setPage(1); }}
             >
               {label}
             </Button>
@@ -198,7 +203,7 @@ const AdminDashboard = () => {
                       </TableCell>
                     </TableRow>
                   ) : (
-                    filtered.map((d) => (
+                    paginated.map((d) => (
                       <TableRow key={d.id}>
                         <TableCell className="text-xs whitespace-nowrap">
                           {new Date(d.created_at).toLocaleString("ar-TN")}
@@ -248,6 +253,32 @@ const AdminDashboard = () => {
             </div>
           )}
         </div>
+
+        {!loading && filtered.length > 0 && (
+          <div className="flex items-center justify-between mt-4 flex-wrap gap-3">
+            <p className="text-sm text-muted-foreground">
+              صفحة {currentPage} من {totalPages} • {filtered.length} عنصر
+            </p>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                disabled={currentPage === 1}
+              >
+                السابق
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                disabled={currentPage === totalPages}
+              >
+                التالي
+              </Button>
+            </div>
+          </div>
+        )}
       </main>
       <SiteFooter />
     </div>
