@@ -225,7 +225,7 @@ const HomePickupFlow = ({ onBack }: { onBack: () => void }) => {
               className="shrink-0 gap-2"
             >
               {locating ? <Loader2 className="h-4 w-4 animate-spin" /> : <LocateFixed className="h-4 w-4" />}
-              موقعي
+              {locating ? "جاري التحديد..." : "موقعي"}
             </Button>
           </div>
           {form.formState.errors.gps_location && (
