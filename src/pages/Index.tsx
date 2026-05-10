@@ -75,7 +75,7 @@ const Index = () => {
             {/* Text (right) */}
             <div className="order-2 lg:order-1 text-right space-y-5">
               <h1 className="font-arabic-display text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-                أُضْحِيَّتْنَا
+                أُضْحِيَّتُنَا
               </h1>
               <p className="text-lg text-secondary font-bold">
                 "​قال رسول الله ﷺ: «أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ سُرُورٌ تُدْخِلُهُ عَلَى مُسْلِمٍ..» وعن الأضاحي أمرنا فقال: «أَطْعِمُوا»."
