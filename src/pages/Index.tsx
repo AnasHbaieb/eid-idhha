@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { InAppBrowserBanner } from "@/components/InAppBrowserBanner";
 import { SiteFooter } from "@/components/SiteFooter";
 import { DonationDialog } from "@/components/DonationDialog";
 import { Button } from "@/components/ui/button";
@@ -53,6 +54,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background hearts-bg">
+      <InAppBrowserBanner />
       <SiteHeader />
 
       <main className="flex-1">
