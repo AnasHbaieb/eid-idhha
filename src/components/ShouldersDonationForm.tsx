@@ -149,7 +149,7 @@ const HomePickupFlow = ({ onBack }: { onBack: () => void }) => {
         setLocating(false);
         if (inAppBrowser) {
           toast.error(
-            "باش تستعمل خاصية تحديد الموقع، افتح هذا الرابط في متصفح الهاتف (Chrome أو Safari).",
+            "لكي تستعمل خاصية تحديد الموقع . افتح هذا الرابط في المتصفح (chrome , safari ...)",
             { duration: 8000 }
           );
           return;
