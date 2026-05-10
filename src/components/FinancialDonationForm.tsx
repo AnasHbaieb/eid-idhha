@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { financialSchema, type FinancialForm } from "@/lib/donation-schemas";
-import { Loader2, Banknote, Building2, FileCheck } from "lucide-react";
+import { Loader2, Banknote, Building2, FileCheck, Copy } from "lucide-react";
 
 const PRESETS = [50];
 
@@ -147,9 +147,27 @@ export const FinancialDonationForm = ({ onBack }: { onBack: () => void }) => {
       </div>
 
       {paymentMethod === "transfer" && (
-        <div className="rounded-xl bg-muted/60 p-4 text-sm">
-          <p className="font-bold mb-1">معلومات التحويل البنكي</p>
-          <p className="text-muted-foreground">سيتصل بك المتطوعون لإعطائك تفاصيل الـ RIB بعد التسجيل.</p>
+        <div className="rounded-xl bg-muted/60 p-4 text-sm space-y-3">
+          <p className="text-center font-bold text-primary">رقم الحساب البريدي (RIB)</p>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                navigator.clipboard.writeText("17701000000177554445");
+                toast.success("تم نسخ الـ RIB");
+              }}
+              className="shrink-0 rounded-lg border border-border bg-card p-2 hover:bg-muted transition"
+              aria-label="نسخ"
+            >
+              <Copy className="h-4 w-4" />
+            </button>
+            <div dir="ltr" className="flex-1 rounded-lg border border-border bg-card px-3 py-2 text-center font-mono tracking-wider">
+              17701000000177554445
+            </div>
+          </div>
+          <div className="rounded-lg border border-border bg-card px-3 py-2 text-center font-medium">
+            ASS DE CHARITE EL KALIMA ETTAYBA
+          </div>
         </div>
       )}
       {paymentMethod === "check" && (
