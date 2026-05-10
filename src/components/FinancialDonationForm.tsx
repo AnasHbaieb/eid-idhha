@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { financialSchema, type FinancialForm } from "@/lib/donation-schemas";
-import { Loader2, Banknote, Building2, FileCheck } from "lucide-react";
+import { Loader2, Banknote, Building2, FileCheck, Copy } from "lucide-react";
 
 const PRESETS = [50];
 
