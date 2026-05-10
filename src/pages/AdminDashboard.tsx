@@ -89,20 +89,24 @@ const AdminDashboard = () => {
   };
 
   const exportCsv = () => {
+    const trackMap: Record<string, string> = { financial: "مالية", shoulders: "أكتاف" };
+    const paymentMap: Record<string, string> = { cash: "نقدي", transfer: "تحويل بنكي", check: "صك بنكي" };
+    const pickupMap: Record<string, string> = { home: "بيت", headquarters: "مقر" };
+    const statusMap: Record<string, string> = { pending: "في الانتظار", collected: "مؤكدة" };
     const headers = [
-      "Date", "Track", "Name", "Phone", "Amount", "Payment", "Pickup Method", "Pickup Time", "GPS", "Status",
+      "التاريخ", "النوع", "الاسم", "الهاتف", "المبلغ", "طريقة الدفع", "طريقة الاستلام", "وقت الاستلام", "الموقع", "الحالة",
     ];
     const rows = donations.map((d) => [
-      new Date(d.created_at).toISOString(),
-      d.track,
+      new Date(d.created_at).toLocaleString("ar-TN"),
+      trackMap[d.track] ?? d.track,
       d.full_name,
       d.phone,
-      d.amount ?? "",
-      d.payment_method ?? "",
-      d.pickup_method ?? "",
-      d.pickup_time ?? "",
-      d.gps_location ?? "",
-      d.status,
+      d.amount ? `${d.amount} د` : "-",
+      d.payment_method ? (paymentMap[d.payment_method] ?? d.payment_method) : "-",
+      d.pickup_method ? (pickupMap[d.pickup_method] ?? d.pickup_method) : "-",
+      d.pickup_time ?? "-",
+      d.gps_location ?? "-",
+      statusMap[d.status] ?? d.status,
     ]);
     const csv = [headers, ...rows]
       .map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(","))
