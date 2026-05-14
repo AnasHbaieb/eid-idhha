@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { SiteHeader } from "@/components/SiteHeader";
 import { InAppBrowserBanner } from "@/components/InAppBrowserBanner";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -54,6 +55,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background hearts-bg">
+      <Helmet>
+        <title>أُضْحِيَّتْنَا - حملة التبرع لعيد الأضحى</title>
+        <meta name="description" content="ساهم في مشروع أضحيتنا لعيد الأضحى مع جمعية الكلمة الطيبة بصفاقس - سهم 50د، 100د، صدقة الأكتاف للعائلات المعوزة." />
+        <link rel="canonical" href="https://eid-idhha.lovable.app/" />
+        <meta property="og:title" content="أُضْحِيَّتْنَا - حملة التبرع لعيد الأضحى" />
+        <meta property="og:description" content="ساهم في مشروع أضحيتنا مع جمعية الكلمة الطيبة بصفاقس." />
+        <meta property="og:url" content="https://eid-idhha.lovable.app/" />
+      </Helmet>
       <InAppBrowserBanner />
       <SiteHeader />
 
@@ -67,6 +76,10 @@ const Index = () => {
                 <img
                   src={heroImage}
                   alt="أضحيتنا - عيد الأضحى"
+                  width={1200}
+                  height={800}
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -75,7 +88,7 @@ const Index = () => {
             {/* Text (right) */}
             <div className="order-2 lg:order-1 text-right space-y-5">
               <h1 className="font-arabic-display text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-                أُضْحِيَّتُنَا
+                أُضْحِيَّتُنَا - حملة التبرع لعيد الأضحى
               </h1>
               <p className="text-lg text-secondary font-bold">
                 "​قال رسول الله ﷺ: «أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ سُرُورٌ تُدْخِلُهُ عَلَى مُسْلِمٍ..» وعن الأضاحي أمرنا فقال: «أَطْعِمُوا»."
