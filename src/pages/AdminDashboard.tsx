@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -140,6 +141,12 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Helmet>
+        <title>لوحة الإدارة - أُضْحِيَّتْنَا</title>
+        <meta name="description" content="لوحة إدارة التبرعات وصدقات الأكتاف لحملة أُضْحِيَّتْنَا الخاصة بجمعية الكلمة الطيبة." />
+        <meta name="robots" content="noindex" />
+        <link rel="canonical" href="https://eid-idhha.lovable.app/admin/dashboard" />
+      </Helmet>
       <SiteHeader />
       <main className="flex-1 container mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">

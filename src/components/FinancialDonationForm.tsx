@@ -89,6 +89,7 @@ export const FinancialDonationForm = ({ onBack }: { onBack: () => void }) => {
           <Input
             type="number"
             min={1}
+            aria-label="المبلغ المخصص بالدينار"
             placeholder="المبلغ بالدينار"
             value={customAmount}
             onChange={(e) => {
