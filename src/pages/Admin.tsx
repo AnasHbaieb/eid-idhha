@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -69,6 +70,12 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Helmet>
+        <title>دخول الإدارة - أُضْحِيَّتْنَا</title>
+        <meta name="description" content="صفحة دخول مخصّصة لفريق إدارة جمعية الكلمة الطيبة لإدارة حملة أُضْحِيَّتْنَا." />
+        <meta name="robots" content="noindex" />
+        <link rel="canonical" href="https://eid-idhha.lovable.app/admin" />
+      </Helmet>
       <SiteHeader />
       <main className="flex-1 flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-card">
